@@ -1,0 +1,27 @@
+.project-container {
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.item {
+    height: 450px;
+    margin-top: 20px;
+    filter: brightness(100%);
+    transition: filter 0.5s;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+}
+  
+
+.big {
+ flex-grow: 8;
+}
+
+.little {
+    flex-grow: 2;
+}
+
+.medium {
+    flex-grow: 4;
+}

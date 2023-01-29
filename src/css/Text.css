@@ -1,0 +1,80 @@
+.text-navBar {
+    font-size: 24px;
+    font-family: "Light";
+    color: #4a4e69;
+}
+
+.text-navBar:hover {
+    color: #9a8c98;
+}
+
+.container-title-navBar {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 40px;
+    /* background-color: aqua; */
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: flex-start;
+    height: 57vh;
+    margin-left: 40px;
+    /* background-color: red; */
+    /* align-items: center; */
+    gap: 15px;
+}
+
+.footer{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: flex-start;
+    height: 13vh;
+    margin-left: 40px;
+    gap: 10px;
+    color: #4a4e69;
+    font-family: "Light";
+}
+
+.text {
+    color: #4a4e69;
+}
+
+.underline-left {
+    text-decoration: none;
+	background: linear-gradient(currentColor, currentColor) bottom / 0 .1em no-repeat;
+	transition: 1s background-size;
+    background-position: left bottom;
+}
+
+.active {
+    background-size: 100% .1em;
+}
+
+.underline-left:hover {
+    background-size: 100% .1em;
+}
+
+.imageTest {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.container-icons {
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+}
+
+.icons {
+    height: 25px;
+    width: auto;
+    color: #4a4e69;
+}
