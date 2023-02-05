@@ -32,9 +32,9 @@ const images = [
     {
         src: image4,
         alt: "Image 4",
-        title: "NOERS",
-        text: "Création d’une marque tout le long de l’année. (Le nom de la marque, La direction stylistique du produit, L'ambiance par des moodboards, Le persona, L'égérie.)",
-        href: "projects/noers",
+        title: "ELSA HANCE",
+        text: "Création d’une pièce upcyclée dans un temps imparti de 15 jours, avec création textile, dessin technique, shooting photo.",
+        href: "projects/elsa",
     },
     {
         src: image5,
