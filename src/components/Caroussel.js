@@ -1,8 +1,8 @@
 import Carousel from "react-bootstrap/Carousel";
 import image from "../assets/carousel1.jpg";
 import image2 from "../assets/carousel2.jpg";
-import image3 from "../assets/carousel3.PNG";
-import image4 from "../assets/carousel4.PNG";
+import image3 from "../assets/carousel3.jpg";
+import image4 from "../assets/carousel4.jpg";
 import image5 from "../assets/carousel5.jpg";
 import image6 from "../assets/carousel6.jpg";
 import { Container, Row, Col, NavLink, Nav } from "react-bootstrap";

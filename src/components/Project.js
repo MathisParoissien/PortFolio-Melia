@@ -8,7 +8,7 @@ import project3 from "../assets/projects/project3.jpg";
 import project4 from "../assets/projects/project4.jpg";
 import project5 from "../assets/projects/project5.jpg";
 import project6 from "../assets/projects/project6.jpg";
-import project7 from "../assets/projects/project7.PNG";
+import project7 from "../assets/projects/project7.jpg";
 import project8 from "../assets/projects/project8.jpg";
 import { useMediaQuery } from "react-responsive";
 
