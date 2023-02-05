@@ -14,7 +14,7 @@ function SideBar() {
         <div>
             <div className="container-title-navBar text">
                 <h1>PORTFOLIO</h1>
-                <h2>Mélia Tosolini</h2>
+                <h2>Mearly</h2>
             </div>
             <div className="bar text">
                 <NavLink href="/">
