@@ -18,6 +18,10 @@
     /* background-color: aqua; */
 }
 
+.font {
+    font-family: "Light";
+}
+
 .bar {
     display: flex;
     flex-direction: column;
@@ -30,7 +34,7 @@
     gap: 15px;
 }
 
-.footer{
+.footer {
     display: flex;
     flex-direction: column;
     /* justify-content: center; */
@@ -48,17 +52,17 @@
 
 .underline-left {
     text-decoration: none;
-	background: linear-gradient(currentColor, currentColor) bottom / 0 .1em no-repeat;
-	transition: 1s background-size;
+    background: linear-gradient(currentColor, currentColor) bottom / 0 0.1em no-repeat;
+    transition: 1s background-size;
     background-position: left bottom;
 }
 
 .active {
-    background-size: 100% .1em;
+    background-size: 100% 0.1em;
 }
 
 .underline-left:hover {
-    background-size: 100% .1em;
+    background-size: 100% 0.1em;
 }
 
 .imageTest {
