@@ -1,4 +1,7 @@
-import { Container, Row, Col, NavLink } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { NavLink } from "react-bootstrap";
+import { db } from "../firebase/firebase";
+import { collection, getDocs } from "firebase/firestore";
 import "../css/Text.css";
 import Caroussel from "./Caroussel";
 import "../App.css";
@@ -10,6 +13,27 @@ import { useMediaQuery } from "react-responsive";
 
 function SideBar() {
     const location = window.location.pathname;
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "categories"));
+                const fetchedCategories = querySnapshot.docs.map((doc) => {
+                    const data = doc.data();
+                    return {
+                        tag: data.tag,
+                        name: data.name,
+                    };
+                });
+                setCategories(fetchedCategories);
+            } catch (e) {
+                console.log(`Error fetching categories: ${e}`);
+            }
+        };
+
+        fetchCategories();
+    }, []);
     return (
         <div>
             <div className="container-title-navBar text">
@@ -23,9 +47,9 @@ function SideBar() {
                 <NavLink href="/projects">
                     <span className={location.includes("projects") ? "text-navBar underline-left active" : "text-navBar underline-left"}>Projets Scolaires</span>
                 </NavLink>
-                <NavLink href="/stylism">
+                {/* <NavLink href="/stylism">
                     <span className={location.includes("stylism") ? "text-navBar underline-left active" : "text-navBar underline-left"}>Stylisme</span>
-                </NavLink>
+                </NavLink> */}
                 <NavLink href="/technic">
                     <span className={location.includes("technic") ? "text-navBar underline-left active" : "text-navBar underline-left"}>Dessins Techniques</span>
                 </NavLink>

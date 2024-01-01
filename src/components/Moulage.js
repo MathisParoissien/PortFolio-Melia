@@ -1,30 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/Projects.css";
 import { Container, Row, Col, Card, NavLink } from "react-bootstrap";
 import Item from "./Item";
-import a1 from "../assets/moulage/18.PNG";
-import a2 from "../assets/moulage/21.PNG";
-import a3 from "../assets/moulage/22.PNG";
-import a4 from "../assets/moulage/IMG_2537.jpg";
-import a5 from "../assets/moulage/IMG_5261.PNG";
 import { useMediaQuery } from "react-responsive";
-
-const projects = [
-    {
-        image: a1,
-        title: "",
-        text: "",
-        xs: 4,
-        href: "",
-    },
-    { image: a2, title: "", text: "", xs: 4, href: "" },
-    { image: a3, title: "", text: "", xs: 4, href: "" },
-    { image: a4, title: "", text: "", xs: 4, href: "" },
-    { image: a5, title: "", text: "", xs: 4, href: "" },
-];
+import { db } from "../firebase/firebase"; // Assurez-vous que ce chemin est correct
+import { collection, getDocs } from "firebase/firestore";
 
 const Moulage = () => {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
+
+    const [images, setImages] = useState([]);
+
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "moulage"));
+                const fetchedImages = querySnapshot.docs.map((doc) => {
+                    const data = doc.data();
+                    return {
+                        src: data.image, // Use the correct field name based on your Firestore document
+                        alt: data.titre, // 'titre' is the field name for title in your Firestore
+                        title: data.titre,
+                        text: data.desc,
+                        taille: data.taille,
+                        // href: data.href, // Add this if you have a field for href in your Firestore documents
+                    };
+                });
+
+                console.log(fetchedImages);
+                setImages(fetchedImages);
+            } catch (e) {
+                console.log(`Error fetching data: ${e}`);
+            }
+        };
+
+        fetchImages();
+    }, []);
 
     return (
         <Container fluid className="project-container" style={{ paddingBottom: isTabletOrMobile ? "20vh" : "" }}>
@@ -33,17 +44,17 @@ const Moulage = () => {
                     <h1 style={{ paddingTop: "2.5vh" }} className="font">
                         Moulage
                     </h1>
-                    {projects.map((p, index) => (
-                        <Col className="w-100" style={{ paddingBottom: "15px" }}>
-                            <Item project={p} parent={false} />
+                    {images.map((image, index) => (
+                        <Col key={index} className="w-100" style={{ paddingBottom: "15px" }}>
+                            <Item project={image} parent={false} />
                         </Col>
                     ))}
                 </div>
             ) : (
                 <Row style={{ marginRight: "0px", marginBottom: "20px" }}>
-                    {projects.map((p, index) => (
-                        <Col xs={p.xs}>
-                            <Item project={p} parent={false} />
+                    {images.map((image, index) => (
+                        <Col key={index} className="w-100" style={{ paddingBottom: "15px" }}>
+                            <Item project={image} parent={false} />
                         </Col>
                     ))}
                 </Row>

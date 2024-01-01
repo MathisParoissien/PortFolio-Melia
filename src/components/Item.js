@@ -33,7 +33,7 @@ function Item(props) {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
     return (
         <div
-            style={{ height: isTabletOrMobile ? "60vh" : "", backgroundImage: `url(${props.project.image})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}
+            style={{ height: isTabletOrMobile ? "60vh" : "", backgroundImage: `url(${props.project.src})`, backgroundRepeat: "no-repeat", backgroundSize: "cover" }}
             className={`item ${hovering ? "item-hover" : ""}`}
             onMouseEnter={() => {
                 setHovering(true);
@@ -52,7 +52,7 @@ function Item(props) {
 
             {props.parent === false && (
                 <MyVerticallyCenteredModal
-                    image={props.project.image}
+                    image={props.project.src}
                     show={open}
                     onHide={() => {
                         handleShow();

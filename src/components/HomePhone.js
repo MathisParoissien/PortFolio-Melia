@@ -4,7 +4,7 @@ import { Container, NavLink } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
 import Projects from "./Project";
 import ReusableProject from "./projects/ReusableProject";
-import { CarouselPhoneVariant } from "./Caroussel";
+import DarkVariantExample from "./Caroussel";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import Stylism from "./Stylism";
@@ -205,7 +205,7 @@ function HomePhone() {
         <div>
             <NavBarPhone style={{ position: "absolute", top: 0, left: 0 }} />
             <Routes>
-                <Route path="/" element={<CarouselPhoneVariant />} />
+                <Route path="/" element={<DarkVariantExample />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/noers" element={<ReusableProject items={noers} title={"NOERS"} isTabletOrMobile={isTabletOrMobile} />} />
                 <Route path="/projects/buffalo" element={<ReusableProject items={buffalo} title={"BUFFALO X BILLIE ELISH"} isTabletOrMobile={isTabletOrMobile} />} />
