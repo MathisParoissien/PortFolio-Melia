@@ -5,7 +5,7 @@ import Item from "./Item";
 import { useMediaQuery } from "react-responsive";
 
 import { db } from "../firebase/firebase"; // Assurez-vous que ce chemin est correct
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import { formatUrl } from "../formatUrl";
 
 const Projects = () => {
@@ -16,7 +16,9 @@ const Projects = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "projects"));
+                // Modifier la requête pour inclure le tri
+                const querySnapshot = await getDocs(query(collection(db, "projects"), orderBy("tri")));
+
                 const fetchedImages = querySnapshot.docs.map((doc) => {
                     const data = doc.data();
                     return {
@@ -25,6 +27,7 @@ const Projects = () => {
                         titre: data.titre,
                         desc: data.desc,
                         taille: data.taille,
+                        tri: data.tri || 0,
                     };
                 });
                 setImages(fetchedImages);
