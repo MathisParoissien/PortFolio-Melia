@@ -35,6 +35,7 @@ import ContactButton from "./MailButton";
 import LinkedinButton from "./Linkedin";
 import InstagramButton from "./InstagramButton";
 import { useMediaQuery } from "react-responsive";
+import Autres from "./Autres";
 
 const noers = [
     { image: n1, title: "", text: "", xs: 6 },
@@ -218,6 +219,7 @@ function HomePhone() {
                 <Route path="/stylism" element={<Stylism />} />
                 <Route path="/technic" element={<Technic />} />
                 <Route path="/moulage" element={<Moulage />} />
+                <Route path="/autres" element={<Autres />} />
                 <Route path="/about" element={<About />} />
             </Routes>
         </div>

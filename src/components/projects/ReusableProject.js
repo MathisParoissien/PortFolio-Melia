@@ -7,9 +7,8 @@ import { db } from "../../firebase/firebase";
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
 import { formatUrl } from "../../formatUrl";
 
-function ReusableProject({ isTabletOrMobile }) {
+function ReusableProject({ isTabletOrMobile, isProject }) {
     const { titre } = useParams();
-    console.log("Titre du projet:", titre);
     const [project, setProject] = useState(null);
     const [photos, setPhotos] = useState([]);
 
@@ -27,15 +26,37 @@ function ReusableProject({ isTabletOrMobile }) {
                 const photosCollectionRef = collection(db, "projects", projData.id, "photos");
                 const photosSnapshot = await getDocs(photosCollectionRef);
                 const photosList = photosSnapshot.docs.map((doc) => doc.data());
-                console.log("photos");
-                console.log(photosList);
                 setPhotos(photosList);
             } else {
                 console.log("No such project!");
             }
         };
 
-        fetchProject();
+        const fetchOthers = async () => {
+            console.log("test");
+            const titreDecoded = decodeURIComponent(titre);
+            // Charger tous les projets
+            const projectsSnapshot = await getDocs(collection(db, "autre"));
+            // Trouver le projet par son titre
+            const projData = projectsSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })).find((proj) => formatUrl(proj.titre) === titreDecoded); // Utilisez titreDecoded si nécessaire
+
+            if (projData) {
+                setProject(projData);
+                // Charger les photos si la collection existe
+                const photosCollectionRef = collection(db, "autre", projData.id, "photos");
+                const photosSnapshot = await getDocs(photosCollectionRef);
+                const photosList = photosSnapshot.docs.map((doc) => doc.data());
+                setPhotos(photosList);
+            } else {
+                console.log("No such project!");
+            }
+        };
+
+        if (isProject) {
+            fetchProject();
+        } else {
+            fetchOthers();
+        }
     }, [titre]);
 
     if (!project) {

@@ -17,6 +17,7 @@ import HomePhone from "./HomePhone";
 import { db } from "../firebase/firebase";
 import { collection, getDocs } from "firebase/firestore";
 import { formatUrl } from "../formatUrl";
+import Autres from "./Autres";
 
 function Home() {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
@@ -71,9 +72,11 @@ function Home() {
                                     {/* <Route path="/stylism" element={<Stylism />} /> */}
                                     <Route path="/technic" element={<Technic />} />
                                     <Route path="/moulage" element={<Moulage />} />
+                                    <Route path="/autres" element={<Autres />} />
                                     <Route path="/about" element={<About />} />
 
-                                    <Route path="/projects/:titre" element={<ReusableProject />} />
+                                    <Route path="/projects/:titre" element={<ReusableProject isProject />} />
+                                    <Route path="/autres/:titre" element={<ReusableProject />} />
 
                                     {/* {images.map((image, index) => (
                                         <Route key={index} path={"/projects/" + formatUrl(image.titre)} element={<ReusableProject items={images} title={image.titre} />} />

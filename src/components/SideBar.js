@@ -56,6 +56,9 @@ function SideBar() {
                 <NavLink href="/moulage">
                     <span className={location.includes("moulage") ? "text-navBar underline-left active" : "text-navBar underline-left"}>Moulage</span>
                 </NavLink>
+                <NavLink href="/autres">
+                    <span className={location.includes("autres") ? "text-navBar underline-left active" : "text-navBar underline-left"}>Autres</span>
+                </NavLink>
                 <NavLink href="/about">
                     <span className={location.includes("about") ? "text-navBar underline-left active" : "text-navBar underline-left"}>About me</span>
                 </NavLink>
