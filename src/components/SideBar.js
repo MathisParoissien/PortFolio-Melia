@@ -36,10 +36,12 @@ function SideBar() {
     }, []);
     return (
         <div>
-            <div className="container-title-navBar text">
-                <h1>PORTFOLIO</h1>
-                <h2>Mearly</h2>
-            </div>
+            <NavLink href="/">
+                <div className="container-title-navBar text">
+                    <h1>PORTFOLIO</h1>
+                    <h2>Mearly</h2>
+                </div>
+            </NavLink>
             <div className="bar text">
                 <NavLink href="/">
                     <span className={location === "/" ? "text-navBar underline-left active" : "text-navBar underline-left"}>Accueil</span>
