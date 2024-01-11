@@ -21,7 +21,7 @@ const Moulage = () => {
                         src: data.image, // Use the correct field name based on your Firestore document
                         alt: data.titre, // 'titre' is the field name for title in your Firestore
                         title: data.titre,
-                        text: data.desc,
+                        text: data.desc || "",
                         taille: data.taille,
                         // href: data.href, // Add this if you have a field for href in your Firestore documents
                     };
@@ -53,7 +53,7 @@ const Moulage = () => {
             ) : (
                 <Row style={{ marginRight: "0px", marginBottom: "20px" }}>
                     {images.map((image, index) => (
-                        <Col key={index} className="w-100" style={{ paddingBottom: "15px" }}>
+                        <Col key={index} xs={image.taille} style={{ paddingBottom: "15px" }}>
                             <Item project={image} parent={false} />
                         </Col>
                     ))}
