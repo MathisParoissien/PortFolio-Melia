@@ -1,7 +1,7 @@
 import React from "react";
 import { Document, Page } from "react-pdf";
 import { useMediaQuery } from "react-responsive";
-import cv from "./cv.png";
+import cv from "./cv2.jpeg";
 
 const About = () => {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });

@@ -30,6 +30,7 @@ function Item(props) {
     const [open, setOpen] = React.useState(false);
 
     const handleShow = () => setOpen(!open);
+    console.log(props.project.src);
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1224px)" });
     return (
         <div
@@ -56,7 +57,6 @@ function Item(props) {
                     show={open}
                     onHide={() => {
                         handleShow();
-                        console.log("open ->", open);
                     }}
                 />
             )}

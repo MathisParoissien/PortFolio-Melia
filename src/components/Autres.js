@@ -46,7 +46,7 @@ const Autres = () => {
             {isTabletOrMobile ? (
                 <div>
                     <h1 style={{ paddingTop: "2.5vh" }} className="font">
-                        Projets Scolaires
+                        Autres Projets
                     </h1>
                     {images.map((image, index) => (
                         <Col className="w-100" style={{ paddingBottom: "15px" }}>
