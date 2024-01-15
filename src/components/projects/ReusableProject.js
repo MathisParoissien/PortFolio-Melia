@@ -68,7 +68,7 @@ function ReusableProject({ isTabletOrMobile, isProject }) {
             {!isTabletOrMobile ? (
                 <Container fluid className="project-container">
                     <div style={{ paddingTop: "5vh", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <NavLink href={"/projects"}>
+                        <NavLink href={isProject ? "/projects" : "/autres"}>
                             <BsArrowLeft size={25} />
                         </NavLink>
                         <h1 className="font" style={{ paddingLeft: "10vh" }}>
